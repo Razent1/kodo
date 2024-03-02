@@ -13,6 +13,8 @@ t. The star schema is popular in data warehousing because it optimizes performan
 In a star schema, we identify a central Fact table that contains measurable, quantitative data, and Dimension tables that contain descriptive attributes related to the fact data. For your e-commerce system, the Orders table naturally becomes the central Fact table, with modifications to include keys that link to Dimension tables.
 
 I put sql code for star schema inside the file 'metadata_start.sql'. Also there are some examples of queries.
+<img width="828" alt="Pasted Graphic" src="https://github.com/Razent1/kodo/assets/53121795/12fa2cca-3388-4dea-8b4a-2bf393febc43">
+
 
 ## Schema Adjustments
 Normalization: While the star schema tends to denormalize data for analytical ease, certain attributes like payment and shipping information are kept in separate dimension tables due to their one-to-one relationship with orders. This slightly leans towards a snowflake schema but retains the star schema's simplicity for most analytical needs.
@@ -34,7 +36,10 @@ Therefore, more and more often, when designing systems that use entities from th
 Data Vault/Anchor Modeling allows you to simulate reality. First of all, objects of the real world (people, cars, goods) and not quite real (receipts, email messages, IP addresses). At first, I wanted to list all these objects as objects of the real world, but I thought that this might confuse someone, so the email messages went into a separate subcategory, although for me, as for Data Vault/Anchor Modeling, they are all the same objects of the same real world that swallowed digital reality.In Data Vault, objects are mapped to tables of the Hub type, in Anchor Modeling to a table of the Anchor type.
 Tables in Anchor Model should be in 6th normal form.
 
-Implementing a full Anchor Model for the e-commerce system as described requires creating a series of tables that represent each entity (anchors), their attributes, and the ties between them. The file with this implementation stores in the file '_metadata_anchor.sql'
+Implementing a full Anchor Model for the e-commerce system as described requires creating a series of tables that represent each entity (anchors), their attributes, and the ties between them. The file with this implementation stores in the file 'metadata_anchor.sql'
+<img width="872" alt="Pasted Graphic 1" src="https://github.com/Razent1/kodo/assets/53121795/3bea67b5-29f1-4a4a-931d-047fdc5dfb77">
+<img width="892" alt="Pasted Graphic 2" src="https://github.com/Razent1/kodo/assets/53121795/37752214-e981-4036-8f1e-92104a05d5a8">
+
 
 Note:
 Auto-incrementing IDs: These are used here for simplicity. Depending on your database system, you might use sequences or other mechanisms to generate unique identifiers.
